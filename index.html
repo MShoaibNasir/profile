@@ -168,6 +168,85 @@ body{
   .avatar img{border-radius:50%}
   .body{grid-template-columns:1fr}
 }
+/* ======= MOBILE RESPONSIVE IMPROVEMENTS ======= */
+
+@media (max-width: 768px) {
+  body{
+    padding:12px;
+  }
+
+  .card{
+    border-radius:16px;
+  }
+
+  .header{
+    padding:24px 20px;
+    gap:18px;
+  }
+
+  .avatar img{
+    width:140px;
+    height:140px;
+  }
+
+  .head-info h1{
+    font-size:26px;
+  }
+
+  .badges{
+    justify-content:center;
+  }
+
+  .badge{
+    font-size:12px;
+    padding:5px 12px;
+  }
+
+  .body{
+    padding:22px 18px;
+    gap:18px;
+  }
+
+  .box{
+    padding:18px 18px;
+  }
+
+  .box h2{
+    font-size:16px;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+    gap:4px;
+    font-size:13px;
+  }
+
+  .row span:first-child{
+    font-size:12px;
+    color:#888;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar img{
+    width:120px;
+    height:120px;
+  }
+
+  .head-info h1{
+    font-size:22px;
+  }
+
+  .box{
+    border-radius:14px;
+  }
+
+  .footer{
+    font-size:12px;
+    padding:12px;
+  }
+}
+
 </style>
 </head>
 
