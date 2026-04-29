@@ -2,313 +2,151 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Biodata</title>
+<title>Biodata PDF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- html2pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 <style>
-:root{
-  --primary:#2b2e4a;
-  --secondary:#e84545;
-  --soft:#f7f7f7;
-  --text:#2d2d2d;
-}
-
-*{
-  box-sizing:border-box;
-}
-
 body{
   margin:0;
-  font-family: "Inter", "Segoe UI", sans-serif;
-  background: linear-gradient(135deg,#ece9e6,#ffffff);
-  color:var(--text);
-  padding:30px;
+  font-family: Arial, sans-serif;
+  background:#f2f2f2;
+  padding:20px;
 }
 
-/* CARD */
+button{
+  display:block;
+  margin:0 auto 20px;
+  padding:10px 20px;
+  background:#e84545;
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+}
+
 .card{
-  max-width:1000px;
+  max-width:900px;
   margin:auto;
   background:#fff;
-  border-radius:24px;
-  box-shadow:0 25px 60px rgba(0,0,0,.12);
+  border-radius:15px;
   overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* HEADER */
 .header{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:30px;
-  padding:40px;
-  background:var(--primary);
+  display:flex;
+  background:#2b2e4a;
   color:#fff;
-}
-
-.avatar{
-  display:flex;
-  justify-content:center;
+  padding:20px;
   align-items:center;
+  gap:20px;
 }
 
-.avatar img{
-  width:180px;
-  height:180px;
-  border-radius:20px;
+.header img{
+  width:120px;
+  height:120px;
   object-fit:cover;
-  border:5px solid #fff;
-  cursor:pointer;
+  border-radius:10px;
+  border:3px solid #fff;
 }
 
-.head-info h1{
+.header h1{
   margin:0;
-  font-size:34px;
-}
-
-.badges{
-  margin-top:18px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.badge{
-  background:rgba(255,255,255,.15);
-  padding:6px 14px;
-  border-radius:30px;
-  font-size:13px;
 }
 
 /* BODY */
 .body{
-  padding:40px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
+  padding:20px;
 }
 
-.box{
-  background:var(--soft);
-  border-radius:18px;
-  padding:22px 24px;
-}
-
-.box h2{
-  margin:0 0 18px;
-  font-size:18px;
-  color:var(--primary);
-  position:relative;
-}
-
-.box h2::after{
-  content:"";
-  width:40px;
-  height:3px;
-  background:var(--secondary);
-  position:absolute;
-  left:0;
-  bottom:-8px;
+.section{
+  margin-bottom:20px;
+  padding:15px;
+  background:#f7f7f7;
   border-radius:10px;
 }
 
+.section h2{
+  margin:0 0 10px;
+  color:#2b2e4a;
+}
+
 .row{
-  display:grid;
-  grid-template-columns:140px 1fr;
-  padding:8px 0;
+  display:flex;
+  justify-content:space-between;
+  padding:5px 0;
+  border-bottom:1px solid #ddd;
   font-size:14px;
 }
 
-.row span:first-child{
-  color:#666;
-  font-weight:600;
-}
-
-.row span{
-  word-break:break-word;
-}
-
-.full{
-  grid-column:1 / -1;
-}
-
-/* FOOTER */
 .footer{
   text-align:center;
-  padding:16px;
-  font-size:13px;
-  background:#f1f1f1;
-  color:#666;
-}
-
-/* POPUP */
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.popup img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:20px;
-}
-
-.popup span{
-  position:absolute;
-  top:25px;
-  right:35px;
-  color:#fff;
-  font-size:40px;
-  cursor:pointer;
-}
-
-/* ===== MOBILE FIX (IMPORTANT) ===== */
-@media(max-width: 600px){
-
-  body{
-    padding:0;
-  }
-
-  .card{
-    width:100%;
-    max-width:100%;
-    border-radius:0;
-    box-shadow:none;
-  }
-
-  .header{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding:24px 16px;
-    gap:16px;
-  }
-
-  .avatar img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-  }
-
-  .head-info h1{
-    font-size:24px;
-  }
-
-  .badges{
-    justify-content:center;
-  }
-
-  .body{
-    grid-template-columns:1fr;
-    padding:20px 16px;
-    gap:18px;
-  }
-
-  .box{
-    padding:16px;
-    border-radius:14px;
-  }
-
-  .box h2{
-    font-size:16px;
-  }
-
-  .row{
-    grid-template-columns:1fr;
-    gap:4px;
-    font-size:13px;
-  }
-
-  .footer{
-    font-size:12px;
-  }
+  padding:10px;
+  background:#eee;
+  font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<button onclick="downloadPDF()">Download PDF</button>
+
+<div class="card" id="pdf">
 
   <div class="header">
-    <div class="avatar">
-      <img src="./SHOAIB.png" onclick="openPop(this.src)">
-    </div>
-    <div class="head-info">
+    <img src="https://your-domain.com/SHOAIB.png" crossorigin="anonymous">
+    <div>
       <h1>Shoaib Nasir</h1>
-      <div class="badges">
-        <div class="badge">27 Years</div>
-        <div class="badge">Software Engineer</div>
-        <div class="badge">Single</div>
-        <div class="badge">Karachi</div>
-      </div>
+      <p>Software Engineer | Karachi</p>
     </div>
   </div>
 
   <div class="body">
 
-    <div class="box">
-      <h2>Personal Information</h2>
+    <div class="section">
+      <h2>Personal Info</h2>
       <div class="row"><span>Name</span><span>Muhammad Shoaib Nasir</span></div>
       <div class="row"><span>Father</span><span>Nasir Mehmod</span></div>
       <div class="row"><span>DOB</span><span>06-12-1998</span></div>
-      <div class="row"><span>Religion</span><span>Islam (Sunni)</span></div>
-      <div class="row"><span>Caste</span><span>Sheikh</span></div>
+      <div class="row"><span>Religion</span><span>Islam</span></div>
     </div>
 
-    <div class="box">
-      <h2>Background</h2>
-      <div class="row"><span>Nationality</span><span>Pakistani</span></div>
-      <div class="row"><span>Languages</span><span>Urdu, Punjabi</span></div>
-      <div class="row"><span>Origin</span><span>Sahiwal, Punjab</span></div>
-      <div class="row"><span>Siblings</span><span>1 Brother (Married)</span></div>
-    </div>
-
-    <div class="box">
+    <div class="section">
       <h2>Education</h2>
-      <div class="row"><span>Degree</span><span>BSCS (In Progress)</span></div>
+      <div class="row"><span>Degree</span><span>BSCS</span></div>
       <div class="row"><span>Institute</span><span>Virtual University</span></div>
     </div>
 
-    <div class="box">
-      <h2>Profession</h2>
-      <div class="row"><span>Role</span><span>Software Engineer</span></div>
-      <div class="row"><span>Company</span><span>A2Z Creatorz (Defence)</span></div>
-    </div>
-
-    <div class="box full">
-      <h2>Contact Details</h2>
-      <div class="row"><span>Mobile</span><span>0315-2762116</span></div>
+    <div class="section">
+      <h2>Contact</h2>
+      <div class="row"><span>Phone</span><span>0315-2762116</span></div>
       <div class="row"><span>Email</span><span>shoaibnasir315@gmail.com</span></div>
-      <div class="row"><span>Address</span><span>FB Area, Karachi</span></div>
-    </div>
-
-    <div class="box full">
-      <h2>Expectation from Proposal</h2>
-      <div class="row"><span>Partner</span><span>Educated, respectful & family-oriented</span></div>
-      <div class="row"><span>Family</span><span>Religious and well-mannered</span></div>
     </div>
 
   </div>
 
-  <div class="footer">Designed with simplicity & respect</div>
-</div>
+  <div class="footer">
+    Biodata Document
+  </div>
 
-<div class="popup" id="popup" onclick="closePop()">
-  <span>&times;</span>
-  <img id="popImg">
 </div>
 
 <script>
-function openPop(src){
-  document.getElementById('popImg').src = src;
-  document.getElementById('popup').style.display = 'flex';
-}
-function closePop(){
-  document.getElementById('popup').style.display = 'none';
+function downloadPDF(){
+  const element = document.getElementById("pdf");
+
+  html2pdf().set({
+    margin: 0,
+    filename: 'biodata.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  }).from(element).save();
 }
 </script>
 
